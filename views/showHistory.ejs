@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Plus Help Desk | Show History | Register Your Complaints Here</title>
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen"/>
+  <link type="text/css" rel="stylesheet" href="../css/main.css"  media="screen"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!--Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="../images/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../images/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../images/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../images/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../images/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../images/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../images/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="../images/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../images/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#000">
+  <meta name="msapplication-TileImage" content="../images/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#000">
+
+  <!--Meta Data-->
+  <!-- for Google -->
+  <meta name="description" content="A Ticket Based Enterprise Software To Register And Manage Complaints." />
+  <meta name="keywords" content="complaints, register, manage, software, enterprise" />
+  <meta name="author" content="Vipin Khushu" />
+  <meta name="copyright" content="vipin@vipinkhushu.com" />
+  <!-- for Facebook -->
+  <meta property="og:url"                content="http://www.vipinkhushu.com/" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="A Plus Help Desk" />
+  <meta property="og:description"        content="A Ticket Based Enterprise Software To Register And Manage Complaints." />
+  <meta property="og:site_name"          content="A Plus Help Desk" />
+  <!-- for Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Plus Help Desk" />
+  <meta name="twitter:description" content="A Ticket Based Enterprise Software To Register And Manage Complaints." />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="blue">
+    <div class="nav-wrapper">
+      <a class="brand-logo center white-text"><img src="/images/logo.png" width="100px"> A Plus Help Desk</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/home">New Complaint</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/home">New Complaint</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+
+  </nav>
+  <table class="bordered highlight responsive-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Category</th>
+        <th>Time stamp</th>
+        <th>Status</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% for(x in data){ %>
+      <tr>
+        <td><%= data[x]._id %></td>
+        <td><%= data[x].category %></td>
+        <td><%= data[x].time %></td>
+        <td><%= data[x].status %></td>
+        <td><a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick="document.getElementById('modalbody').innerHTML='<%= data[x].description %>'"">Details</a</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4 id="modalhead">MESSAGE</h4>
+        <p id="modalbody">A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+  </div>
+
+  <br/><br/><br/><br/>
+  <footer class="page-footer blue">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2017 A Plus Help Desk v1.0
+      </div>
+    </div>
+  </footer>
+
+
+</div>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/materialize.min.js"></script>
+<script type="text/javascript" src="../js/init.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+
+  });
+  function openModalWithDetails(desc){
+    $('#modalbody').html(desc);
+  }
+</script>
+</body>

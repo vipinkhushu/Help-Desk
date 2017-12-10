@@ -1,0 +1,20 @@
+{
+	"name": "aplushelpdesk",
+	"version": "1.0.0",
+	"description": "A Ticket Based Enterprise Software To Register And Manage Complaints.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"express":"*",
+		"body-parser":"*",
+		"ejs":"*",
+		"sendgrid":"*",
+		"mongoose":"*",
+		"express-session":"*",
+		"connect-mongo":"*"
+	},
+	"author": "vipin khushu",
+	"license": "MIT"
+}
