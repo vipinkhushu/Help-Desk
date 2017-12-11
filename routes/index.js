@@ -199,7 +199,7 @@ app.post('/admin/register',requiresAdminLogin, function(req, res){
   });
   var sg = require('sendgrid')(process.env.SGKEY);
 
-  var myvar = "Hey "+n+"!<br/><br/>You have been successfully registered to A Plus Help Desk<br/> Your login credentials are as follows: <br/><b>Email:</b> "+e+"<br/><b>Password:</b> "+p+"<br/><br/>Kindly visit http://aplus.com to login.<br/><br/>Regards<br/>Ishan Raina";
+  var myvar = "Hey "+n+"!<br/><br/>You have been successfully registered to A Plus Help Desk<br/> Your login credentials are as follows: <br/><b>Email:</b> "+e+"<br/><b>Password:</b> "+p+"<br/><br/>Kindly visit http://aplushelpdesk.herokuapp.com/ to login.<br/><br/>Regards<br/>Ishan Raina";
   var from_email = new helper.Email('noreply@aplus.co.in','A Plus Help Desk');
   var to_email = new helper.Email(e);
   var subject = "A Plus Help Desk Registration"
